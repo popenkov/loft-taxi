@@ -1,11 +1,44 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.container {
+.profile {
   width: 100%;
   height: calc(100vh - 102px);
   @include flex-center;
 
   background-image: url('../../assets/images/map-bg.jpg');
   background-size: cover;
+}
+
+.container {
+  width: calc(100% - 40px);
+  max-width: 888px;
+  height: 588px;
+  padding: 60px 44px;
+
+  @include flex-column;
+  align-items: center;
+
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: $white;
+}
+
+.title {
+  margin-bottom: 13px;
+  @include font-size(36, 42, 700);
+}
+
+.subtitle {
+  margin-bottom: 51px;
+  @include font-size(18, 21, 400);
+  color: $greySubtitle;
+}
+
+.info {
+  @include flex-center-fullwidth;
+}
+
+.formContainer {
+  width: 50%;
 }
