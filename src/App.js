@@ -6,9 +6,19 @@ import './styles/styles.scss';
 import { Header } from './components/Header';
 import { ROUTES } from './constants/constants';
 import { Login, MapPage, Profile, Register } from './pages';
+import AuthContext from './context/AuthContext';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('profile');
+  const [isAuthed, setIsAuthed] = useState(false);
+
+  const login = () => {
+    setIsAuthed(true);
+  };
+
+  const logout = () => {
+    setIsAuthed(false);
+  };
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
@@ -23,7 +33,11 @@ function App() {
 
   const ChosenPage = PAGES_MAP[currentPage];
 
-  return <>{ChosenPage}</>;
+  return (
+    <AuthContext.Provider value={{ isAuthed, login, logout }}>
+      {ChosenPage}
+    </AuthContext.Provider>
+  );
 }
 
 export default App;

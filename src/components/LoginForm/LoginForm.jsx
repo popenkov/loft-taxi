@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import styles from './LoginForm.module.scss';
 // import { Input } from './Input';
 import { Button } from '../UI/Button';
 import { Input } from '../UI/FormElements/Input';
+import AuthContext from '../../context/AuthContext';
 
 export const LoginForm = ({ title, handleChangePage }) => {
   const [formState, setFormState] = useState({
@@ -15,12 +16,15 @@ export const LoginForm = ({ title, handleChangePage }) => {
     password: '',
   });
 
+  const login = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleSubmitClick = (evt) => {
     evt.preventDefault();
     // TODO  navigate(ROUTES.MAP);
     handleChangePage('map');
+    login();
   };
 
   const handleRegisterClick = () => {
