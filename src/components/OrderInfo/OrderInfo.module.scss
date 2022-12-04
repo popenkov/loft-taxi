@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.container {
+  width: 486px;
+  height: 471px;
+
+  background: #ffffff;
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.selectsContainer {
+  padding: 33px 23px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 23px;
+}
+
+.bottomContainer {
+  padding: 33px 48px;
+  background-color: $white;
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}

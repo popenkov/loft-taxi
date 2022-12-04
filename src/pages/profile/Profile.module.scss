@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.container {
+  width: 100%;
+  height: calc(100vh - 102px);
+  @include flex-center;
+
+  background-image: url('../../assets/images/map-bg.jpg');
+  background-size: cover;
+}

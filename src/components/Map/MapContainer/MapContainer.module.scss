@@ -1,0 +1,8 @@
+.container {
+  position: relative;
+  height: 100vh;
+
+  [class*='ymaps-2'][class*='-ground-pane'] {
+    filter: grayscale(100%);
+  }
+}

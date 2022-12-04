@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.sidebar {
+  min-width: 220px;
+  max-width: 485px;
+  width: 34%;
+  @include flex-center;
+  background-color: $blackBg;
+}
+
+.LogoContainer {
+  @include flex-center-column;
+}
+.roadLogo {
+  margin-bottom: 22px;
+}
+
+.taxiLogo {
+}

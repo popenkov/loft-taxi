@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.page {
+  height: 100vh;
+  display: flex;
+}
+
+.main {
+  width: 100%;
+  @include flex-center;
+
+  background-image: url('../../assets/images/map-bg.jpg');
+  background-size: cover;
+}

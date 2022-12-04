@@ -20,7 +20,7 @@ export const Navigation = () => {
   return (
     <nav>
       {links.map((link) => {
-        return <Link to={link.href}>{link.name}</Link>;
+        return <button to={link.href}>{link.name}</button>;
       })}
     </nav>
   );

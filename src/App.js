@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import './App.css';
+import './styles/global.scss';
+import './styles/styles.scss';
 import { Header } from './components/Header';
 import { ROUTES } from './constants/constants';
-import { Login, Map, Profile, Register } from './pages';
+import { Login, MapPage, Profile, Register } from './pages';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('login');
+  const [currentPage, setCurrentPage] = useState('profile');
 
   const handleNavigation = (page) => {
-    console.log('page', page);
     setCurrentPage(page);
   };
 
@@ -18,17 +18,12 @@ function App() {
     login: <Login handleChangePage={handleNavigation} />,
     register: <Register handleChangePage={handleNavigation} />,
     profile: <Profile handleChangePage={handleNavigation} />,
-    map: <Map handleChangePage={handleNavigation} />,
+    map: <MapPage handleChangePage={handleNavigation} />,
   };
 
   const ChosenPage = PAGES_MAP[currentPage];
 
-  return (
-    <div>
-      <Header handleChangePage={handleNavigation} />
-      {ChosenPage}
-    </div>
-  );
+  return <>{ChosenPage}</>;
 }
 
 export default App;
