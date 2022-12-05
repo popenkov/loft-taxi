@@ -1,15 +1,15 @@
-import { PropTypes } from "prop-types";
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { PropTypes } from 'prop-types';
+import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { ROUTES } from "../../constants/constants";
+import { ROUTES } from '../../constants/constants';
 
-export const Register = ({ handleChangePage }) => {
+export const Register = () => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleInputChange = (evt) => {
@@ -20,13 +20,10 @@ export const Register = ({ handleChangePage }) => {
 
   const handleSubmitClick = (evt) => {
     evt.preventDefault();
-    // TODO  navigate(ROUTES.MAP);
-    handleChangePage("map");
+    navigate(ROUTES.MAP);
   };
 
-  const handleLoginClick = () => {
-    handleChangePage("login");
-  };
+  const handleLoginClick = () => {};
 
   return (
     <div>
@@ -61,8 +58,4 @@ export const Register = ({ handleChangePage }) => {
       </form>
     </div>
   );
-};
-
-Register.propTypes = {
-  handleChangePage: PropTypes.func.isRequired,
 };

@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import NavLink from '../NavLink/NavLink';
 
 const links = [
-  {
-    name: 'Логин',
-    href: '/login',
-  },
   {
     name: 'Карта',
     href: '/map',
@@ -21,9 +18,9 @@ export const Navigation = () => {
     <nav>
       {links.map((link) => {
         return (
-          <button to={link.href} key={link.href}>
+          <NavLink {...link} key={link.name}>
             {link.name}
-          </button>
+          </NavLink>
         );
       })}
     </nav>

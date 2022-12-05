@@ -1,17 +1,15 @@
-import { PropTypes } from "prop-types";
-import React from "react";
+import { PropTypes } from 'prop-types';
+import React from 'react';
 
-import { LoginForm } from "../../components/LoginForm";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import { useAuth } from "../../context/AuthContext/AuthContext";
-import styles from "./Home.module.scss";
+import { LoginForm } from '../../components/LoginForm';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import { useAuth } from '../../context/AuthContext/AuthContext';
+import styles from './Home.module.scss';
 
-export const Home = ({ handleChangePage }) => {
+export const Home = () => {
   const { isLoggedIn } = useAuth();
 
-  const handleProfileClick = () => {
-    handleChangePage("profile");
-  };
+  const handleProfileClick = () => {};
 
   return (
     <div className={styles.page}>
@@ -24,13 +22,9 @@ export const Home = ({ handleChangePage }) => {
             <button onClick={handleProfileClick}>Go to profile</button>
           </h2>
         ) : (
-          <LoginForm title="Войти" handleChangePage={handleChangePage} />
+          <LoginForm title="Войти" />
         )}
       </div>
     </div>
   );
-};
-
-Home.propTypes = {
-  handleChangePage: PropTypes.func.isRequired,
 };
