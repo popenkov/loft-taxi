@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Input } from '../UI/FormElements/Input';
+import React from 'react';
+import { PropTypes } from 'prop-types';
 
+import { Input } from '../UI/FormElements/Input';
 import styles from './ProfileForm.module.scss';
 
 export const ProfileForm = ({ state, handleChange }) => {
@@ -46,4 +47,15 @@ export const ProfileForm = ({ state, handleChange }) => {
       </div>
     </form>
   );
+};
+
+ProfileForm.propTypes = {
+  state: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    cardNumber: PropTypes.string.isRequired,
+    cardYear: PropTypes.string.isRequired,
+    cardCVC: PropTypes.string.isRequired,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };

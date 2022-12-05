@@ -5,27 +5,23 @@ import './styles/global.scss';
 import './styles/styles.scss';
 import { Header } from './components/Header';
 import { ROUTES } from './constants/constants';
-import { Login, MapPage, Profile, Register } from './pages';
-import AuthContext from './context/AuthContext';
+import { Home, MapPage, Profile, Register } from './pages';
+import { useAuth } from './context/AuthContext';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('profile');
-  const [isAuthed, setIsAuthed] = useState(false);
-
-  const login = () => {
-    setIsAuthed(true);
-  };
-
-  const logout = () => {
-    setIsAuthed(false);
-  };
+  const [currentPage, setCurrentPage] = useState('home');
+  const { isLoggedIn } = useAuth();
 
   const handleNavigation = (page) => {
-    setCurrentPage(page);
+    if (isLoggedIn) {
+      setCurrentPage(page);
+    } else {
+      setCurrentPage('home');
+    }
   };
 
   const PAGES_MAP = {
-    login: <Login handleChangePage={handleNavigation} />,
+    home: <Home handleChangePage={handleNavigation} />,
     register: <Register handleChangePage={handleNavigation} />,
     profile: <Profile handleChangePage={handleNavigation} />,
     map: <MapPage handleChangePage={handleNavigation} />,
@@ -33,11 +29,7 @@ function App() {
 
   const ChosenPage = PAGES_MAP[currentPage];
 
-  return (
-    <AuthContext.Provider value={{ isAuthed, login, logout }}>
-      {ChosenPage}
-    </AuthContext.Provider>
-  );
+  return <div>{ChosenPage}</div>;
 }
 
 export default App;

@@ -6,3 +6,7 @@
     filter: grayscale(100%);
   }
 }
+
+.mapContainer {
+  height: calc(100vh - 102px);
+}

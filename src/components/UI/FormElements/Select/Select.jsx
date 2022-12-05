@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactSelect, { OnChangeValue } from 'react-select';
+import ReactSelect from 'react-select';
+import { PropTypes } from 'prop-types';
 
 import styles from './Select.module.scss';
 
@@ -15,4 +16,15 @@ export const Select = ({ value, options, handleChange }) => {
       />
     </div>
   );
+};
+
+Select.propTypes = {
+  value: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleChange: PropTypes.func,
 };

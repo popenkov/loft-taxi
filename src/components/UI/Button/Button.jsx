@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { PropTypes } from 'prop-types';
 
 import styles from './Button.module.scss';
 
@@ -23,4 +24,11 @@ export const Button = ({ text, type, clickHandler, disabled }) => {
 
 Button.defaultProps = {
   disabled: false,
+};
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };

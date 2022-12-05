@@ -1,9 +1,11 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import { ReactComponent as RoadLogo } from '../../assets/icons/road-logo.svg';
 import { ReactComponent as TaxiLogo } from '../../assets/icons/taxi-logo.svg';
 import styles from './header.module.scss';
 import NavLink from './NavLink/NavLink';
+import { useAuth } from '../../context/AuthContext';
 
 const links = [
   {
@@ -21,8 +23,16 @@ const links = [
 ];
 
 export const Header = ({ handleChangePage }) => {
+  const { isLoggedIn, logOut } = useAuth();
+
   const handleNavigationClick = (page) => {
+    console.log('page', page);
     handleChangePage(page);
+  };
+
+  const handleLogoutClick = () => {
+    console.log('logOut');
+    logOut();
   };
 
   return (
@@ -41,14 +51,25 @@ export const Header = ({ handleChangePage }) => {
                 {...link}
                 color="secondary"
                 key={link.name}
-                onClick={() => handleNavigationClick(link.href)}
+                handleClick={handleNavigationClick}
               >
                 {link.name}
               </NavLink>
             );
           })}
+          {
+            <NavLink
+              name="Выйти"
+              color="secondary"
+              onClick={handleLogoutClick}
+            ></NavLink>
+          }
         </div>
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  handleChangePage: PropTypes.func,
 };

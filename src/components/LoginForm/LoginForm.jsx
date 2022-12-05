@@ -5,10 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { ROUTES } from '../../constants/constants';
 import styles from './LoginForm.module.scss';
-// import { Input } from './Input';
 import { Button } from '../UI/Button';
 import { Input } from '../UI/FormElements/Input';
-import AuthContext from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 export const LoginForm = ({ title, handleChangePage }) => {
   const [formState, setFormState] = useState({
@@ -16,7 +15,7 @@ export const LoginForm = ({ title, handleChangePage }) => {
     password: '',
   });
 
-  const login = useContext(AuthContext);
+  const { logIn } = useAuth();
 
   const navigate = useNavigate();
 
@@ -24,7 +23,7 @@ export const LoginForm = ({ title, handleChangePage }) => {
     evt.preventDefault();
     // TODO  navigate(ROUTES.MAP);
     handleChangePage('map');
-    login();
+    logIn(formState);
   };
 
   const handleRegisterClick = () => {
@@ -77,9 +76,5 @@ export const LoginForm = ({ title, handleChangePage }) => {
 
 LoginForm.propTypes = {
   title: PropTypes.string.isRequired,
-  handleChangePage: PropTypes.func,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  handleChangePage: PropTypes.func.isRequired,
 };

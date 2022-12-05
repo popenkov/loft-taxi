@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import styles from './TariffItem.module.scss';
 
@@ -16,4 +17,11 @@ export const TariffItem = ({ name, title, price, img }) => {
       </div>
     </label>
   );
+};
+
+TariffItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
 };

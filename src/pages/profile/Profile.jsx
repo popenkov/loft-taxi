@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { Layout } from '../../components/Layouts/Layout';
 import styles from './Profile.module.scss';
+import { useAuth } from '../../context/AuthContext';
 
 const mockDate = {
   date: '05/08',
@@ -11,6 +12,7 @@ const mockDate = {
 };
 
 export const Profile = () => {
+  const { isLoggedIn } = useAuth();
   const [formState, setFormState] = useState({
     name: 'ANTON POPENKOV',
     cardNumber: '5545 2300 3432 4521 ',
@@ -34,7 +36,7 @@ export const Profile = () => {
             <div className={styles.formContainer}>
               <ProfileForm state={formState} handleChange={handleInputChange} />
             </div>
-            <PaymentCard {...formState} />
+            <PaymentCard {...formState} onClick={() => alert(123)} />
           </div>
         </div>
       </div>

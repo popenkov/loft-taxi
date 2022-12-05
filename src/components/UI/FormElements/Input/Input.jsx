@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import styles from './Input.module.scss';
 
@@ -21,4 +22,13 @@ export const Input = ({ label, value, changeHandler, type, name, id }) => {
       />
     </div>
   );
+};
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  changeHandler: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };

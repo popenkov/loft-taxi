@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+
 import { ROUTES } from '../../constants/constants';
 
 export const Register = ({ handleChangePage }) => {
@@ -59,4 +61,8 @@ export const Register = ({ handleChangePage }) => {
       </form>
     </div>
   );
+};
+
+Register.propTypes = {
+  handleChangePage: PropTypes.func.isRequired,
 };

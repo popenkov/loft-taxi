@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import { ReactComponent as RoadLogo } from '../../../assets/icons/road-logo.svg';
 import { ReactComponent as Contacts } from '../../../assets/icons/contacts.svg';
@@ -19,4 +20,9 @@ export const PaymentCard = ({ cardYear, cardNumber }) => {
       </div>
     </div>
   );
+};
+
+PaymentCard.propTypes = {
+  cardYear: PropTypes.string.isRequired,
+  cardNumber: PropTypes.string.isRequired,
 };
