@@ -10,7 +10,6 @@
     "@material-ui/styles": "^4.11.5",
     "@mui/material": "^5.10.16",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.2",
     "loft-taxi-mui-theme": "^1.2.0",
@@ -30,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint:fix": "eslint -c ./.eslintrc.js \"./**/*.{js,jsx}\" --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -60,5 +60,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.4.0",
+    "eslint": "8.27.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.31.10",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "react-test-renderer": "^18.2.0"
   }
 }

@@ -20,7 +20,11 @@ export const Navigation = () => {
   return (
     <nav>
       {links.map((link) => {
-        return <button to={link.href}>{link.name}</button>;
+        return (
+          <button to={link.href} key={link.href}>
+            {link.name}
+          </button>
+        );
       })}
     </nav>
   );

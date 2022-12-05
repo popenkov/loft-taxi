@@ -1,15 +1,10 @@
-import { ProfileForm } from '../../components/ProfileForm';
-import { PaymentCard } from '../../components/UI/PaymentCard';
 import React, { useState } from 'react';
 
 import { Layout } from '../../components/Layouts/Layout';
+import { ProfileForm } from '../../components/ProfileForm';
+import { PaymentCard } from '../../components/UI/PaymentCard';
+import { useAuth } from '../../context/AuthContext/AuthContext';
 import styles from './Profile.module.scss';
-import { useAuth } from '../../context/AuthContext';
-
-const mockDate = {
-  date: '05/08',
-  number: '5545 2300 3432 4521',
-};
 
 export const Profile = () => {
   const { isLoggedIn } = useAuth();

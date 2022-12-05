@@ -1,24 +1,24 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import React from "react";
 
-import { ReactComponent as RoadLogo } from '../../assets/icons/road-logo.svg';
-import { ReactComponent as TaxiLogo } from '../../assets/icons/taxi-logo.svg';
-import styles from './header.module.scss';
-import NavLink from './NavLink/NavLink';
-import { useAuth } from '../../context/AuthContext';
+import { ReactComponent as RoadLogo } from "../../assets/icons/road-logo.svg";
+import { ReactComponent as TaxiLogo } from "../../assets/icons/taxi-logo.svg";
+import { useAuth } from "../../context/AuthContext/AuthContext";
+import styles from "./header.module.scss";
+import NavLink from "./NavLink/NavLink";
 
 const links = [
   {
-    name: 'Логин',
-    href: 'login',
+    name: "Логин",
+    href: "login",
   },
   {
-    name: 'Карта',
-    href: 'map',
+    name: "Карта",
+    href: "map",
   },
   {
-    name: 'Профиль',
-    href: 'profile',
+    name: "Профиль",
+    href: "profile",
   },
 ];
 
@@ -26,13 +26,14 @@ export const Header = ({ handleChangePage }) => {
   const { isLoggedIn, logOut } = useAuth();
 
   const handleNavigationClick = (page) => {
-    console.log('page', page);
+    console.log("page", page);
     handleChangePage(page);
   };
 
   const handleLogoutClick = () => {
-    console.log('logOut');
+    console.log("logOut");
     logOut();
+    handleChangePage("home");
   };
 
   return (
@@ -51,7 +52,7 @@ export const Header = ({ handleChangePage }) => {
                 {...link}
                 color="secondary"
                 key={link.name}
-                handleClick={handleNavigationClick}
+                handleClick={() => handleNavigationClick(link.href)}
               >
                 {link.name}
               </NavLink>
@@ -61,7 +62,7 @@ export const Header = ({ handleChangePage }) => {
             <NavLink
               name="Выйти"
               color="secondary"
-              onClick={handleLogoutClick}
+              handleClick={handleLogoutClick}
             ></NavLink>
           }
         </div>

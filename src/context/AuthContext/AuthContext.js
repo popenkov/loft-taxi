@@ -1,20 +1,19 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from "react";
 
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const logIn = (arg) => {
-    const { email, password } = arg;
-    if (email !== 'test' || password !== 'test') {
+  const logIn = (email, password) => {
+    if (email !== "test" || password !== "test") {
       return;
     }
     setIsLoggedIn(true);
   };
 
   const logOut = () => {
-    console.log('login');
+    console.log("login");
     setIsLoggedIn(false);
   };
 

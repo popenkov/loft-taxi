@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Select } from '../UI/FormElements/Select';
+import React, { useState } from "react";
 
-import styles from './OrderInfo.module.scss';
-import { Tariffs } from '../Tariffs';
-import { Button } from '../UI/Button';
+import { Tariffs } from "../Tariffs";
+import { Button } from "../UI/Button";
+import { Select } from "../UI/FormElements/Select";
+import styles from "./OrderInfo.module.scss";
 
 const testAddresses = [
-  { value: 'mira_street', label: 'Ул. Мира' },
-  { value: 'bezymenskiy_street', label: 'Ул. Безыменского' },
-  { value: 'lenin_avenue', label: 'Пр-т Ленина' },
+  { value: "mira_street", label: "Ул. Мира" },
+  { value: "bezymenskiy_street", label: "Ул. Безыменского" },
+  { value: "lenin_avenue", label: "Пр-т Ленина" },
 ];
 
 export const OrderInfo = () => {
   const [formState, setFormState] = useState({
-    from: '',
-    to: '',
-    tariff: '',
+    from: "",
+    to: "",
+    tariff: "",
   });
 
   const handleFromChange = (option) => {
@@ -29,7 +29,7 @@ export const OrderInfo = () => {
   const handleSubmitClick = (evt) => {
     evt.preventDefault();
     // TODO  navigate(ROUTES.MAP);
-    console.log('submitted');
+    console.log("submitted");
   };
 
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
 import { PropTypes } from 'prop-types';
+import React from 'react';
 
 import { Input } from '../UI/FormElements/Input';
 import styles from './ProfileForm.module.scss';
@@ -50,7 +50,6 @@ export const ProfileForm = ({ state, handleChange }) => {
 };
 
 ProfileForm.propTypes = {
-  state: PropTypes.object.isRequired,
   state: PropTypes.shape({
     name: PropTypes.string.isRequired,
     cardNumber: PropTypes.string.isRequired,

@@ -1,7 +1,7 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import React from "react";
 
-import styles from './TariffItem.module.scss';
+import styles from "./TariffItem.module.scss";
 
 export const TariffItem = ({ name, title, price, img }) => {
   return (

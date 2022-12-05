@@ -3,13 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import './styles/global.scss';
 import './styles/styles.scss';
-import { Header } from './components/Header';
 import { ROUTES } from './constants/constants';
+import { useAuth } from './context/AuthContext/AuthContext';
 import { Home, MapPage, Profile, Register } from './pages';
-import { useAuth } from './context/AuthContext';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('map');
   const { isLoggedIn } = useAuth();
 
   const handleNavigation = (page) => {

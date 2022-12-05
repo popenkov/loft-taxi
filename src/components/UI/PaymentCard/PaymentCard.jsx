@@ -1,10 +1,9 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import React from "react";
 
-import { ReactComponent as RoadLogo } from '../../../assets/icons/road-logo.svg';
-import { ReactComponent as Contacts } from '../../../assets/icons/contacts.svg';
-
-import styles from './PaymentCard.module.scss';
+import { ReactComponent as Contacts } from "../../../assets/icons/contacts.svg";
+import { ReactComponent as RoadLogo } from "../../../assets/icons/road-logo.svg";
+import styles from "./PaymentCard.module.scss";
 
 export const PaymentCard = ({ cardYear, cardNumber }) => {
   return (

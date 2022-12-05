@@ -1,16 +1,16 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import React from "react";
 
-import Sidebar from '../../components/Sidebar/Sidebar';
-import styles from './Home.module.scss';
-import { LoginForm } from '../../components/LoginForm';
-import { useAuth } from '../../context/AuthContext';
+import { LoginForm } from "../../components/LoginForm";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import { useAuth } from "../../context/AuthContext/AuthContext";
+import styles from "./Home.module.scss";
 
 export const Home = ({ handleChangePage }) => {
   const { isLoggedIn } = useAuth();
 
   const handleProfileClick = () => {
-    handleChangePage('profile');
+    handleChangePage("profile");
   };
 
   return (

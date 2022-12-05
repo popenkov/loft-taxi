@@ -1,8 +1,8 @@
-import { Header } from '../../Header';
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
+import React from "react";
 
-import styles from './Layout.styles.scss';
+import { Header } from "../../Header";
+import styles from "./Layout.styles.scss";
 
 export const Layout = ({ children }) => {
   return (
