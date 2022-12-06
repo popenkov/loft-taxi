@@ -19,7 +19,7 @@ export const routeSlice = createSlice({
       })
       .addCase(getRouteData.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.routes = payload.routes;
+        state.routes = payload;
       })
       .addCase(getRouteData.rejected, (state) => {
         state.isLoading = false;

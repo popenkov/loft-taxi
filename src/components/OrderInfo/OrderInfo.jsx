@@ -19,21 +19,30 @@ export const OrderInfo = () => {
   });
 
   const [addressList, setAddressList] = useState([]);
+  const [chosenAddress, setChosenAddress] = useState(null);
 
   useEffect(() => {
     getAdressListData();
   }, []);
 
   useEffect(() => {
-    const mappedAdresses = addressListMapper(addresses);
+    let filterredAddresses = addresses;
+    if (Boolean(chosenAddress)) {
+      filterredAddresses = addresses.filter((item) => {
+        return item !== chosenAddress;
+      });
+    }
+    const mappedAdresses = addressListMapper(filterredAddresses);
     setAddressList(mappedAdresses);
-  }, [addresses]);
+  }, [addresses, chosenAddress]);
 
   const handleFromChange = (option) => {
+    setChosenAddress(option.label);
     setFormState({ ...formState, address1: option.label });
   };
 
   const handleToChange = (option) => {
+    setChosenAddress(option.label);
     setFormState({ ...formState, address2: option.label });
   };
 
