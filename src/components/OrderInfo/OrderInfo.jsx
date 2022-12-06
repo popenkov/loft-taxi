@@ -32,7 +32,9 @@ export const OrderInfo = () => {
         return item !== chosenAddress;
       });
     }
+
     const mappedAdresses = addressListMapper(filterredAddresses);
+
     setAddressList(mappedAdresses);
   }, [addresses, chosenAddress]);
 

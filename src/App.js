@@ -11,6 +11,8 @@ function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
+
+      <Route path={ROUTES.REGISTRATION} element={<Register />} />
       <Route
         path={ROUTES.MAP}
         element={
