@@ -13,7 +13,7 @@ export const AuthService = {
     );
 
     if (response.data.token) {
-      saveToStorage(response.data);
+      saveToStorage('userToken', response.data);
     }
 
     return response;
@@ -26,7 +26,7 @@ export const AuthService = {
     });
 
     if (response.data.token) {
-      saveToStorage(response.data.token);
+      saveToStorage('userToken', response.data);
     }
 
     return response;

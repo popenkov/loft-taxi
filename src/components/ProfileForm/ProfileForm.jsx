@@ -13,35 +13,35 @@ export const ProfileForm = ({ state, handleChange }) => {
     <form>
       <Input
         label={'Имя владельца'}
-        id="name"
+        id="cardName"
         value={state.cardName}
-        type="name"
-        name="name"
+        type="text"
+        name="cardName"
         changeHandler={handleInputChange}
       />
       <Input
         label={'Номер карты'}
         id="cardNumber"
         value={state.cardNumber}
-        type="cardNumber"
+        type="text"
         name="cardNumber"
         changeHandler={handleInputChange}
       />
       <div className={styles.inputsContainer}>
         <Input
           label={'MM/YY'}
-          id="cardYear"
+          id="expiryDate"
           value={state.expiryDate}
-          type="cardYear"
-          name="cardYear"
+          type="text"
+          name="expiryDate"
           changeHandler={handleInputChange}
         />
         <Input
           label={'CVC'}
-          id="cardCVC"
+          id="cvc"
           value={state.cvc}
-          type="cardCVC"
-          name="cardCVC"
+          type="text"
+          name="cvc"
           changeHandler={handleInputChange}
         />
       </div>

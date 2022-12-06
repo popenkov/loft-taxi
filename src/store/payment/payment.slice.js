@@ -18,11 +18,9 @@ export const paymentSlice = createSlice({
       })
       .addCase(sendCardData.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.card = payload;
       })
       .addCase(sendCardData.rejected, (state) => {
         state.isLoading = false;
-        state.card = null;
       })
       .addCase(getCardData.pending, (state) => {
         state.isLoading = true;

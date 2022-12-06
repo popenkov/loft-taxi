@@ -1,3 +1,4 @@
+import { Button } from '../../components/UI/Button';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -9,7 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 import styles from './Profile.module.scss';
 
 export const Profile = () => {
-  const { getCardData } = useActions();
+  const { getCardData, sendCardData } = useActions();
   const { isLoading, card } = useSelector((state) => state.payment);
   const [formState, setFormState] = useState({});
 
@@ -24,7 +25,13 @@ export const Profile = () => {
   const handleInputChange = (evt) => {
     const inputValue = evt.target.value;
     const inputName = evt.target.name;
+
+    console.log(formState, inputName, inputValue);
     setFormState({ ...formState, [inputName]: inputValue });
+  };
+
+  const handleSubmitClick = () => {
+    sendCardData(formState);
   };
 
   return (
@@ -45,6 +52,11 @@ export const Profile = () => {
               </div>
               <PaymentCard {...formState} />
             </div>
+            <Button
+              text="Сохранить"
+              type="primary"
+              clickHandler={handleSubmitClick}
+            />
           </div>
         </div>
       )}

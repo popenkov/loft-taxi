@@ -39,7 +39,6 @@ export const OrderInfo = () => {
 
   const handleSubmitClick = (evt) => {
     evt.preventDefault();
-
     getRouteData(formState);
   };
 

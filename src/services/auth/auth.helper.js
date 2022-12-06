@@ -1,3 +1,3 @@
-export const saveToStorage = (data) => {
-  localStorage.setItem('userToken', JSON.stringify(data));
+export const saveToStorage = (name, data) => {
+  localStorage.setItem(name, JSON.stringify(data));
 };
