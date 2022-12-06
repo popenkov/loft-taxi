@@ -2,6 +2,7 @@ import { PropTypes } from 'prop-types';
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useActions } from '../../hooks/useActions';
 import { ROUTES } from '../../constants/constants';
 import { useAuth } from '../../context/AuthContext/AuthContext';
 import { Button } from '../UI/Button';
@@ -9,20 +10,19 @@ import { Input } from '../UI/FormElements/Input';
 import styles from './LoginForm.module.scss';
 
 export const LoginForm = ({ title }) => {
+  const { login, register } = useActions();
   const [formState, setFormState] = useState({
     email: '',
     password: '',
   });
 
-  const { logIn } = useAuth();
-
   const navigate = useNavigate();
 
   const handleSubmitClick = (evt) => {
     evt.preventDefault();
-    navigate(ROUTES.MAP);
+    // navigate(ROUTES.MAP);
 
-    logIn(formState.email, formState.password);
+    login(formState);
   };
 
   const handleRegisterClick = () => {};

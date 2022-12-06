@@ -1,19 +1,18 @@
+import { useActions } from '../../hooks/useActions';
 import { PropTypes } from 'prop-types';
 import React from 'react';
 
 import { ReactComponent as RoadLogo } from '../../assets/icons/road-logo.svg';
 import { ReactComponent as TaxiLogo } from '../../assets/icons/taxi-logo.svg';
-import { useAuth } from '../../context/AuthContext/AuthContext';
 import styles from './header.module.scss';
 import { Navigation } from './Navigation';
 import NavLink from './NavLink/NavLink';
 
 export const Header = () => {
-  const { isLoggedIn, logOut } = useAuth();
+  const { logout } = useActions();
 
   const handleLogoutClick = () => {
-    console.log('logOut');
-    logOut();
+    logout();
   };
 
   return (

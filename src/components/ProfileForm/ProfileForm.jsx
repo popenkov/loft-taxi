@@ -14,7 +14,7 @@ export const ProfileForm = ({ state, handleChange }) => {
       <Input
         label={'Имя владельца'}
         id="name"
-        value={state.name}
+        value={state.cardName}
         type="name"
         name="name"
         changeHandler={handleInputChange}
@@ -31,7 +31,7 @@ export const ProfileForm = ({ state, handleChange }) => {
         <Input
           label={'MM/YY'}
           id="cardYear"
-          value={state.cardYear}
+          value={state.expiryDate}
           type="cardYear"
           name="cardYear"
           changeHandler={handleInputChange}
@@ -39,7 +39,7 @@ export const ProfileForm = ({ state, handleChange }) => {
         <Input
           label={'CVC'}
           id="cardCVC"
-          value={state.cardCVC}
+          value={state.cvc}
           type="cardCVC"
           name="cardCVC"
           changeHandler={handleInputChange}
@@ -51,10 +51,10 @@ export const ProfileForm = ({ state, handleChange }) => {
 
 ProfileForm.propTypes = {
   state: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    cardNumber: PropTypes.string.isRequired,
-    cardYear: PropTypes.string.isRequired,
-    cardCVC: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    cardNumber: PropTypes.string,
+    cardYear: PropTypes.string,
+    cardCVC: PropTypes.string,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
 };

@@ -1,23 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import cn from 'classnames';
-import { useLocation } from 'react-router-dom';
 
 import styles from './NavLink.module.scss';
 
-function NavLink({ name, href }) {
-  const { pathname } = useLocation();
-  const activeLink = pathname === href;
-
+function NavLink({ name, handleClick }) {
   return (
-    <Link
-      to={href}
-      className={cn(styles.link, {
-        [styles.linkActive]: activeLink,
-      })}
-    >
+    <button className={styles.link} onClick={handleClick}>
       {name}
-    </Link>
+    </button>
   );
 }
 

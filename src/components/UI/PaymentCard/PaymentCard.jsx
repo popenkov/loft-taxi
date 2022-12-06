@@ -1,16 +1,22 @@
-import { PropTypes } from "prop-types";
-import React from "react";
+import { PropTypes } from 'prop-types';
+import React from 'react';
 
-import { ReactComponent as Contacts } from "../../../assets/icons/contacts.svg";
-import { ReactComponent as RoadLogo } from "../../../assets/icons/road-logo.svg";
-import styles from "./PaymentCard.module.scss";
+import { ReactComponent as Contacts } from '../../../assets/icons/contacts.svg';
+import { ReactComponent as RoadLogo } from '../../../assets/icons/road-logo.svg';
+import styles from './PaymentCard.module.scss';
 
-export const PaymentCard = ({ cardYear, cardNumber }) => {
+export const PaymentCard = ({
+  cardName,
+  expiryDate,
+  cvc,
+  cardYear,
+  cardNumber,
+}) => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
         <RoadLogo className={styles.logo} />
-        <p className={styles.date}>{cardYear}</p>
+        <p className={styles.date}>{expiryDate}</p>
       </div>
       <p className={styles.number}>{cardNumber}</p>
       <div className={styles.bottom}>
@@ -22,6 +28,6 @@ export const PaymentCard = ({ cardYear, cardNumber }) => {
 };
 
 PaymentCard.propTypes = {
-  cardYear: PropTypes.string.isRequired,
-  cardNumber: PropTypes.string.isRequired,
+  cardYear: PropTypes.string,
+  cardNumber: PropTypes.string,
 };
