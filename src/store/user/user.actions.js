@@ -5,9 +5,14 @@ import { AuthService } from '../../services/auth/auth.service';
 // регистрация
 export const register = createAsyncThunk(
   'auth/register',
-  async ({ email, password }, thunkAPI) => {
+  async ({ email, password, name, surname }, thunkAPI) => {
     try {
-      const response = await AuthService.register(email, password);
+      const response = await AuthService.register(
+        email,
+        password,
+        name,
+        surname
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

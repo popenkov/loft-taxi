@@ -1,21 +1,21 @@
-import { PropTypes } from 'prop-types';
-import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useActions } from '../../hooks/useActions';
 import { ROUTES } from '../../constants/constants';
-import { useAuth } from '../../context/AuthContext/AuthContext';
 import { Button } from '../UI/Button';
 import { Input } from '../UI/FormElements/Input';
-import styles from './LoginForm.module.scss';
+import styles from './RegisterForm.module.scss';
 
-export const LoginForm = ({ title }) => {
-  const { login } = useActions();
+export const RegisterForm = () => {
+  const { register: registerAction } = useActions();
 
   const handleFormSubmit = (data) => {
+    // backend is waitign for surname key
+    data.surname = data.name;
     console.log(data);
-    login(data);
+    registerAction(data);
   };
 
   const {
@@ -27,40 +27,39 @@ export const LoginForm = ({ title }) => {
   });
 
   return (
-    <div className={styles.form}>
-      <h2 className={styles.title}>{title}</h2>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <div onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
+      <h2 className={styles.title}>Регистрация</h2>
+      <form>
         <Input
           {...register('email', {
             required: 'Email is required!',
           })}
-          placeholder="Email"
+          placeholder="Email:"
           error={errors.email}
+        />
+        <Input
+          {...register('name', {
+            required: 'Name is required!',
+          })}
+          placeholder="Как вас зовут?*"
+          error={errors.name}
         />
         <Input
           {...register('password', {
             required: 'Password is required!',
           })}
-          placeholder="Пароль"
+          placeholder="Придумайте пароль*"
           error={errors.password}
         />
 
-        <Link to="/" className={styles.forgotPassword}>
-          Забыли пароль?
-        </Link>
-
-        <Button text="Войти" type="submit" buttonType="primary" />
+        <Button text="Зарегистрироваться" type="submit" buttonType="primary" />
       </form>
       <div className={styles.switchFormContainer}>
         <span className={styles.switchFormText}> Уже зарегистрированы?</span>
-        <Link to={ROUTES.REGISTRATION} className={styles.registerLink}>
-          Регистрация
+        <Link to={ROUTES.HOME} className={styles.registerLink}>
+          Войти
         </Link>
       </div>
     </div>
   );
-};
-
-LoginForm.propTypes = {
-  title: PropTypes.string.isRequired,
 };

@@ -4,26 +4,30 @@ import ReactSelect from 'react-select';
 
 import styles from './Select.module.scss';
 
-export const Select = ({ options, handleChange }) => {
+export const Select = ({ options, placeholder, field, error }) => {
+  const handleSelectChange = (option) => {
+    field.onChange(option.label);
+  };
   return (
     <div className={styles.selectContainer}>
       <ReactSelect
         classNamePrefix="custom-select"
-        placeholder={''}
+        placeholder={placeholder}
         options={options}
-        onChange={handleChange}
+        onChange={handleSelectChange}
       />
+      {error && <span className={styles.error}>{error.message}</span>}
     </div>
   );
 };
 
-Select.propTypes = {
-  value: PropTypes.string,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  handleChange: PropTypes.func,
-};
+// Select.propTypes = {
+//   value: PropTypes.string,
+//   options: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       value: PropTypes.string.isRequired,
+//       label: PropTypes.string.isRequired,
+//     })
+//   ).isRequired,
+//   handleChange: PropTypes.func,
+// };

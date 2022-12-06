@@ -1,20 +1,17 @@
-import cn from "classnames";
-import { PropTypes } from "prop-types";
-import React from "react";
+import cn from 'classnames';
+import { PropTypes } from 'prop-types';
+import React from 'react';
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss';
 
-export const Button = ({ text, type, clickHandler, disabled }) => {
-  const handleBtnClick = (evt) => {
-    clickHandler(evt);
-  };
+export const Button = ({ text, buttonType, clickHandler, disabled }) => {
   return (
     <button
       className={cn(styles.button, {
-        [styles.primary]: type === "primary",
-        [styles.secondary]: type === "secondary",
+        [styles.primary]: buttonType === 'primary',
+        [styles.secondary]: buttonType === 'secondary',
       })}
-      onClick={handleBtnClick}
+      onClick={clickHandler}
       disabled={disabled}
     >
       {text}
@@ -28,7 +25,7 @@ Button.defaultProps = {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  clickHandler: PropTypes.func.isRequired,
+  buttonType: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func,
   disabled: PropTypes.bool.isRequired,
 };

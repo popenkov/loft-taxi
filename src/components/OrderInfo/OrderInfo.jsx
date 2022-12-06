@@ -1,5 +1,6 @@
 import { useActions } from '../../hooks/useActions';
 import React, { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
 import { Tariffs } from '../Tariffs';
 import { Button } from '../UI/Button';
@@ -10,7 +11,9 @@ import { addressListMapper } from './utils';
 
 export const OrderInfo = () => {
   const { getRouteData, getAdressListData } = useActions();
-  const { isLoading, addresses } = useSelector((state) => state.route);
+  const { isLoading: areAddressesLoading, addresses } = useSelector(
+    (state) => state.route
+  );
 
   const [formState, setFormState] = useState({
     address1: '',
@@ -53,24 +56,63 @@ export const OrderInfo = () => {
     getRouteData(formState);
   };
 
+  const handleFormSubmit = (data) => {
+    getRouteData(data);
+  };
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    control,
+  } = useForm({
+    mode: 'onChange',
+  });
+
   return (
     <div className={styles.container}>
-      {isLoading ? (
+      {areAddressesLoading ? (
         <p>Loading...</p>
       ) : (
-        <form>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
           <div className={styles.selectsContainer}>
-            <Select options={addressList} handleChange={handleFromChange} />
-            <Select options={addressList} handleChange={handleToChange} />
+            <Controller
+              name="address1"
+              control={control}
+              rules={{
+                required: 'Please select the address!',
+              }}
+              render={({ field, fieldState: { error } }) => (
+                <Select
+                  error={error}
+                  field={field}
+                  placeholder=""
+                  options={addressList}
+                  isLoading={areAddressesLoading}
+                />
+              )}
+            />
+            <Controller
+              name="address2"
+              control={control}
+              rules={{
+                required: 'Please select the address!',
+              }}
+              render={({ field, fieldState: { error } }) => (
+                <Select
+                  error={error}
+                  field={field}
+                  placeholder=""
+                  options={addressList}
+                  isLoading={areAddressesLoading}
+                />
+              )}
+            />
           </div>
 
           <div className={styles.bottomContainer}>
             <Tariffs />
-            <Button
-              text="Заказать"
-              type="primary"
-              clickHandler={handleSubmitClick}
-            />
+            <Button text="Заказать" type="submit" buttonType="primary" />
           </div>
         </form>
       )}
