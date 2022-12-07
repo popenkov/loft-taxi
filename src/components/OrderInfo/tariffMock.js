@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-
 import businessImg from '../../assets/images/car-business.png';
 import premiumImg from '../../assets/images/car-premium.jpg';
 import standardImg from '../../assets/images/car-standard.jpg';
-import { TariffItem } from './TariffItem';
-import styles from './Tariffs.module.scss';
 
-const tariffData = [
+export const tariffData = [
   {
     id: 'standard',
     name: 'tariff',
@@ -29,13 +25,3 @@ const tariffData = [
     img: premiumImg,
   },
 ];
-
-export const Tariffs = () => {
-  return (
-    <div className={styles.tariff}>
-      {tariffData.map((item) => {
-        return <TariffItem {...item} key={item.id} />;
-      })}
-    </div>
-  );
-};

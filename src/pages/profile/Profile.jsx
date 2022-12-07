@@ -1,13 +1,14 @@
 import { Button } from '../../components/UI/Button';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
 
 import { Layout } from '../../components/Layouts/Layout';
 import { ProfileForm } from '../../components/ProfileForm';
 import { PaymentCard } from '../../components/UI/PaymentCard';
 import { useActions } from '../../hooks/useActions';
-import { useAuth } from '../../hooks/useAuth';
 import styles from './Profile.module.scss';
+import { Input } from '../../components/UI/FormElements/Input';
 
 export const Profile = () => {
   const { getCardData, sendCardData } = useActions();
@@ -22,16 +23,18 @@ export const Profile = () => {
     setFormState(card);
   }, [card]);
 
-  const handleInputChange = (evt) => {
-    const inputValue = evt.target.value;
-    const inputName = evt.target.name;
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+  });
 
-    console.log(formState, inputName, inputValue);
-    setFormState({ ...formState, [inputName]: inputValue });
-  };
-
-  const handleSubmitClick = () => {
-    sendCardData(formState);
+  const handleFormSubmit = (data) => {
+    console.log(data);
+    setFormState(data);
+    sendCardData(data);
   };
 
   return (
@@ -45,17 +48,80 @@ export const Profile = () => {
             <p className={styles.subtitle}>Введите платежные данные</p>
             <div className={styles.info}>
               <div className={styles.formContainer}>
-                <ProfileForm
-                  state={formState}
-                  handleChange={handleInputChange}
-                />
+                <form id="hook-form" onSubmit={handleSubmit(handleFormSubmit)}>
+                  <Input
+                    {...register('cardName', {
+                      required: 'Обязательное поле',
+                      pattern: {
+                        value: /^[A-Za-z\s]+$/i,
+                        message: 'Только латинские буквы',
+                      },
+                    })}
+                    placeholder="Имя владельца"
+                    error={errors.cardName}
+                  />
+                  <Input
+                    {...register('cardNumber', {
+                      required: 'Обязательное поле',
+                      minLength: {
+                        value: 16,
+                        message: 'Номер карты содержит 16 чисел',
+                      },
+                      pattern: {
+                        value: /[0-9]/,
+                        message: 'Только числа',
+                      },
+                    })}
+                    placeholder="Номер карты"
+                    error={errors.cardNumber}
+                  />
+
+                  <div className={styles.inputsContainer}>
+                    <Input
+                      {...register('expiryDate', {
+                        required: 'Обязательное поле',
+                        minLength: {
+                          value: 5,
+                          message: 'MM/YY',
+                        },
+                        pattern: {
+                          value: /[//]/,
+                          message: 'Введите дату в формате MM/YY',
+                        },
+                      })}
+                      placeholder="MM/YY"
+                      error={errors.expiryDate}
+                    />
+
+                    <Input
+                      {...register('cvc', {
+                        required: 'Обязательное поле',
+                        minLength: {
+                          value: 3,
+                          message: 'Код CVC состоит из 3 чисел',
+                        },
+                        maxLength: {
+                          value: 3,
+                          message: 'Код CVC состоит из 3 чисел',
+                        },
+                        pattern: {
+                          value: /[0-9]/,
+                          message: 'Код CVC состоит из 3 чисел',
+                        },
+                      })}
+                      placeholder="CVC"
+                      error={errors.cvc}
+                    />
+                  </div>
+                </form>
               </div>
               <PaymentCard {...formState} />
             </div>
             <Button
               text="Сохранить"
-              type="primary"
-              clickHandler={handleSubmitClick}
+              type="submit"
+              form="hook-form"
+              buttonType="primary"
             />
           </div>
         </div>

@@ -2,12 +2,14 @@ import { useActions } from '../../hooks/useActions';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { Tariffs } from '../Tariffs';
+// import { Tariffs } from '../Tariffs';
 import { Button } from '../UI/Button';
 import { Select } from '../UI/FormElements/Select';
 import styles from './OrderInfo.module.scss';
 import { useSelector } from 'react-redux';
 import { addressListMapper } from './utils';
+import { tariffData } from './tariffMock';
+import { TariffItem } from '../Tariffs/TariffItem';
 
 export const OrderInfo = () => {
   const { getRouteData, getAdressListData } = useActions();
@@ -51,12 +53,8 @@ export const OrderInfo = () => {
     setFormState({ ...formState, address2: option.label });
   };
 
-  const handleSubmitClick = (evt) => {
-    evt.preventDefault();
-    getRouteData(formState);
-  };
-
   const handleFormSubmit = (data) => {
+    console.log(data);
     getRouteData(data);
   };
 
@@ -111,7 +109,23 @@ export const OrderInfo = () => {
           </div>
 
           <div className={styles.bottomContainer}>
-            <Tariffs />
+            <div className={styles.tariff}>
+              {tariffData.map((item, index) => {
+                return (
+                  <Controller
+                    key={item.id}
+                    name="tariff"
+                    control={control}
+                    rules={{
+                      required: 'Please select the desired Tariff',
+                    }}
+                    render={({ field, fieldState: { error } }) => (
+                      <TariffItem error={error} field={field} {...item} />
+                    )}
+                  />
+                );
+              })}
+            </div>
             <Button text="Заказать" type="submit" buttonType="primary" />
           </div>
         </form>

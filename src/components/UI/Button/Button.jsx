@@ -4,7 +4,7 @@ import React from 'react';
 
 import styles from './Button.module.scss';
 
-export const Button = ({ text, buttonType, clickHandler, disabled }) => {
+export const Button = ({ text, buttonType, clickHandler, disabled, form }) => {
   return (
     <button
       className={cn(styles.button, {
@@ -13,6 +13,7 @@ export const Button = ({ text, buttonType, clickHandler, disabled }) => {
       })}
       onClick={clickHandler}
       disabled={disabled}
+      form={form}
     >
       {text}
     </button>

@@ -30,3 +30,10 @@
     transition: background-color 5000s ease-in-out 0s;
   }
 }
+
+.error {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: red;
+}

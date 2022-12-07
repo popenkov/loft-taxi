@@ -24,12 +24,6 @@ export const PaymentService = {
       cvc: cvc,
       token: AUTH_TOKEN,
     });
-
-    if (response.status === 200) {
-      // запрос на обновление данных
-      this.getCard();
-    }
-
     return response;
   },
 };

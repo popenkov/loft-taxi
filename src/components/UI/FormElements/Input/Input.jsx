@@ -5,6 +5,7 @@ import styles from './Input.module.scss';
 
 export const Input = forwardRef(
   ({ placeholder, error, type = 'text', style, ...rest }, ref) => {
+    console.log(error);
     return (
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>

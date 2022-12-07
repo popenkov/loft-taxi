@@ -6,7 +6,7 @@ import { LoginForm } from '../../components/LoginForm';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useAuth } from '../../hooks/useAuth';
 import styles from './Home.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export const Home = () => {
   const { isLoggedIn } = useAuth();
@@ -19,10 +19,7 @@ export const Home = () => {
       <Sidebar />
       <div className={styles.main}>
         {isLoggedIn ? (
-          <h2>
-            You`re authorized
-            <Link to={ROUTES.PROFILE}>Go to profile</Link>
-          </h2>
+          <Navigate replace to={ROUTES.MAP} />
         ) : (
           <LoginForm title="Войти" />
         )}

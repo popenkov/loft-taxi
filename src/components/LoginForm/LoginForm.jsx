@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useActions } from '../../hooks/useActions';

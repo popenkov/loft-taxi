@@ -15,7 +15,7 @@ export const AuthService = {
     );
 
     if (response.data.token) {
-      saveToStorage('userToken', response.data);
+      saveToStorage('userToken', response.data.token);
     }
 
     return response;
@@ -28,13 +28,13 @@ export const AuthService = {
     });
 
     if (response.data.token) {
-      saveToStorage('userToken', response.data);
+      saveToStorage('userToken', response.data.token);
     }
 
     return response;
   },
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('userToken');
   },
 };

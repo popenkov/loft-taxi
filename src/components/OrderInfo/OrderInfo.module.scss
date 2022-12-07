@@ -17,6 +17,11 @@
   margin-bottom: 23px;
 }
 
+.tariff {
+  @include flex-center-fullwidth;
+  margin-bottom: 30px;
+}
+
 .bottomContainer {
   padding: 33px 48px;
   background-color: $white;
