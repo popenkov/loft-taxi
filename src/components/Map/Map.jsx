@@ -1,5 +1,5 @@
 import { ROUTES } from '../../constants/constants';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,9 +8,15 @@ import { OrderInfo } from '../OrderInfo';
 import styles from './Map.module.scss';
 import { MapContainer } from './MapContainer';
 import { getStoreLocal } from '../../utils/localStorage';
+import { OrderSuccess } from './OrderSuccess/OrderSuccess';
 
 export const Map = () => {
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const isCardAdded = getStoreLocal('cardAdded');
+
+  const handleChangeOrderStatus = () => {
+    setIsOrderPlaced((prev) => !prev);
+  };
 
   return (
     <Layout>
@@ -22,11 +28,13 @@ export const Map = () => {
               <p> Пожалуйста, добавьте карту в свой аккаунт</p>{' '}
               <Link to={ROUTES.PROFILE}>В профиль</Link>
             </>
+          ) : !isOrderPlaced ? (
+            <OrderInfo changeOrderStatus={handleChangeOrderStatus} />
           ) : (
-            <OrderInfo />
+            <OrderSuccess changeOrderStatus={handleChangeOrderStatus} />
           )}
         </div>
-        <MapContainer />
+        <MapContainer isOrderPlaced={isOrderPlaced} />
       </div>
     </Layout>
   );

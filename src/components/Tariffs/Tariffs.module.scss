@@ -1,8 +1,0 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
-@import '../../styles/breakpoints.scss';
-
-.tariff {
-  @include flex-center-fullwidth;
-  margin-bottom: 30px;
-}

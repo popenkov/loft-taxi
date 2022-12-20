@@ -1,20 +1,17 @@
-import { PropTypes } from 'prop-types';
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useActions } from '../../hooks/useActions';
 import { ROUTES } from '../../constants/constants';
-import { useAuth } from '../../context/AuthContext/AuthContext';
 import { Button } from '../UI/Button';
 import { Input } from '../UI/FormElements/Input';
 import styles from './LoginForm.module.scss';
 
-export const LoginForm = ({ title }) => {
+export const LoginForm = () => {
   const { login } = useActions();
 
   const handleFormSubmit = (data) => {
-    console.log(data);
     login(data);
   };
 
@@ -28,7 +25,7 @@ export const LoginForm = ({ title }) => {
 
   return (
     <div className={styles.form}>
-      <h2 className={styles.title}>{title}</h2>
+      <h2 className={styles.title}>Войти</h2>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
           {...register('email', {
@@ -59,8 +56,4 @@ export const LoginForm = ({ title }) => {
       </div>
     </div>
   );
-};
-
-LoginForm.propTypes = {
-  title: PropTypes.string.isRequired,
 };

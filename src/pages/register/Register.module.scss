@@ -1,9 +1,14 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
 
 .page {
   height: 100vh;
   display: flex;
+
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .main {
@@ -12,4 +17,8 @@
 
   background-image: url('../../assets/images/map-bg.jpg');
   background-size: cover;
+
+  @include tablet {
+    background-image: unset;
+  }
 }

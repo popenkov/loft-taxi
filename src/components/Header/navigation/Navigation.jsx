@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { useLocation } from 'react-router-dom';
 
-import NavLink from '../NavLink/NavLink';
 import styles from './Navigation.module.scss';
 
 const links = [

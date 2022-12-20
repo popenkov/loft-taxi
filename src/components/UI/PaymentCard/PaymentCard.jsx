@@ -3,15 +3,10 @@ import React from 'react';
 
 import { ReactComponent as Contacts } from '../../../assets/icons/contacts.svg';
 import { ReactComponent as RoadLogo } from '../../../assets/icons/road-logo.svg';
+
 import styles from './PaymentCard.module.scss';
 
-export const PaymentCard = ({
-  cardName,
-  expiryDate,
-  cvc,
-  cardYear,
-  cardNumber,
-}) => {
+export const PaymentCard = ({ expiryDate, cardNumber }) => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
@@ -28,6 +23,6 @@ export const PaymentCard = ({
 };
 
 PaymentCard.propTypes = {
-  cardYear: PropTypes.string,
+  expiryDate: PropTypes.string,
   cardNumber: PropTypes.string,
 };

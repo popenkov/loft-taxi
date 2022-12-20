@@ -4,8 +4,7 @@ import React, { forwardRef } from 'react';
 import styles from './Input.module.scss';
 
 export const Input = forwardRef(
-  ({ placeholder, error, type = 'text', style, ...rest }, ref) => {
-    console.log(error);
+  ({ placeholder, error, type = 'text', ...rest }, ref) => {
     return (
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>
@@ -18,12 +17,11 @@ export const Input = forwardRef(
   }
 );
 
-// Input.propTypes = {
-//   placeholder: PropTypes.string.isRequired,
-//   error: PropTypes.obj,
-//   value: PropTypes.string,
-//   changeHandler: PropTypes.func.isRequired,
-//   type: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   id: PropTypes.string.isRequired,
-// };
+Input.propTypes = {
+  placeholder: PropTypes.string,
+  error: PropTypes.func,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+};

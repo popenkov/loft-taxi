@@ -1,12 +1,19 @@
-import { PropTypes } from 'prop-types';
 import React from 'react';
 import ReactSelect from 'react-select';
+import { PropTypes } from 'prop-types';
 
 import styles from './Select.module.scss';
 
-export const Select = ({ options, placeholder, field, error }) => {
+export const Select = ({
+  options,
+  placeholder,
+  field,
+  error,
+  getSelectValue,
+}) => {
   const handleSelectChange = (option) => {
     field.onChange(option.label);
+    getSelectValue(option.label);
   };
   return (
     <div className={styles.selectContainer}>
@@ -21,13 +28,14 @@ export const Select = ({ options, placeholder, field, error }) => {
   );
 };
 
-// Select.propTypes = {
-//   value: PropTypes.string,
-//   options: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       value: PropTypes.string.isRequired,
-//       label: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   handleChange: PropTypes.func,
-// };
+Select.propTypes = {
+  placeholder: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  field: PropTypes.object,
+  error: PropTypes.object,
+};

@@ -29,4 +29,5 @@ Button.propTypes = {
   buttonType: PropTypes.string.isRequired,
   clickHandler: PropTypes.func,
   disabled: PropTypes.bool.isRequired,
+  form: PropTypes.string,
 };

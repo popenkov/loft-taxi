@@ -9,20 +9,18 @@
   padding: 55px 112px;
   background-color: $white;
   @include boxShadow;
+
+  @include tablet {
+    width: 100%;
+    max-width: unset;
+    padding: 62px 10px;
+  }
 }
 
 .title {
   margin-bottom: 57px;
   text-align: center;
   @include font-size(30, 35, 700);
-}
-
-.forgotPassword {
-  display: block;
-  margin-bottom: 46px;
-  text-align: right;
-  @include font-size(16, 19, 400);
-  color: $grey;
 }
 
 .switchFormContainer {

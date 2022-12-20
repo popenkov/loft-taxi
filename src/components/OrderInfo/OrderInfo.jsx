@@ -1,27 +1,21 @@
 import { useActions } from '../../hooks/useActions';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { PropTypes } from 'prop-types';
 
-// import { Tariffs } from '../Tariffs';
 import { Button } from '../UI/Button';
 import { Select } from '../UI/FormElements/Select';
 import styles from './OrderInfo.module.scss';
 import { useSelector } from 'react-redux';
 import { addressListMapper } from './utils';
 import { tariffData } from './tariffMock';
-import { TariffItem } from '../Tariffs/TariffItem';
+import { TariffItem } from '../TariffItem';
 
-export const OrderInfo = () => {
+export const OrderInfo = ({ changeOrderStatus }) => {
   const { getRouteData, getAdressListData } = useActions();
   const { isLoading: areAddressesLoading, addresses } = useSelector(
     (state) => state.route
   );
-
-  const [formState, setFormState] = useState({
-    address1: '',
-    address2: '',
-    tariff: '',
-  });
 
   const [addressList, setAddressList] = useState([]);
   const [chosenAddress, setChosenAddress] = useState(null);
@@ -37,30 +31,22 @@ export const OrderInfo = () => {
         return item !== chosenAddress;
       });
     }
-
     const mappedAdresses = addressListMapper(filterredAddresses);
-
     setAddressList(mappedAdresses);
   }, [addresses, chosenAddress]);
 
-  const handleFromChange = (option) => {
-    setChosenAddress(option.label);
-    setFormState({ ...formState, address1: option.label });
-  };
-
-  const handleToChange = (option) => {
-    setChosenAddress(option.label);
-    setFormState({ ...formState, address2: option.label });
-  };
-
   const handleFormSubmit = (data) => {
-    console.log(data);
     getRouteData(data);
+    changeOrderStatus();
+  };
+
+  const handleSelectChange = (option) => {
+    setChosenAddress(option);
   };
 
   const {
     handleSubmit,
-    register,
+
     formState: { errors },
     control,
   } = useForm({
@@ -78,7 +64,7 @@ export const OrderInfo = () => {
               name="address1"
               control={control}
               rules={{
-                required: 'Please select the address!',
+                required: 'Пожалуйста, выберите точку отправление',
               }}
               render={({ field, fieldState: { error } }) => (
                 <Select
@@ -87,6 +73,7 @@ export const OrderInfo = () => {
                   placeholder=""
                   options={addressList}
                   isLoading={areAddressesLoading}
+                  getSelectValue={handleSelectChange}
                 />
               )}
             />
@@ -94,7 +81,7 @@ export const OrderInfo = () => {
               name="address2"
               control={control}
               rules={{
-                required: 'Please select the address!',
+                required: 'Пожалуйста, выберите точку прибытия',
               }}
               render={({ field, fieldState: { error } }) => (
                 <Select
@@ -103,6 +90,7 @@ export const OrderInfo = () => {
                   placeholder=""
                   options={addressList}
                   isLoading={areAddressesLoading}
+                  getSelectValue={handleSelectChange}
                 />
               )}
             />
@@ -132,4 +120,8 @@ export const OrderInfo = () => {
       )}
     </div>
   );
+};
+
+OrderInfo.propTypes = {
+  changeOrderStatus: PropTypes.func.isRequired,
 };

@@ -8,6 +8,13 @@
   width: 34%;
   @include flex-center;
   background-color: $blackBg;
+
+  @include tablet {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    padding: 25px;
+  }
 }
 
 .LogoContainer {
@@ -15,7 +22,15 @@
 }
 .roadLogo {
   margin-bottom: 22px;
+
+  @include tablet {
+    @include box(75px);
+    margin-bottom: 5px;
+  }
 }
 
 .taxiLogo {
+  @include tablet {
+    max-width: 167px;
+  }
 }

@@ -12,7 +12,7 @@ export const RegisterForm = () => {
   const { register: registerAction } = useActions();
 
   const handleFormSubmit = (data) => {
-    // backend is waitign for surname key
+    // TODO backend is waiting for surname key
     data.surname = data.name;
     console.log(data);
     registerAction(data);

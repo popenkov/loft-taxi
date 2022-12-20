@@ -4,7 +4,6 @@ import React from 'react';
 import styles from './TariffItem.module.scss';
 
 export const TariffItem = ({ id, error, field, title, price, img }) => {
-  console.log(field);
   return (
     <label className={styles.label}>
       <input

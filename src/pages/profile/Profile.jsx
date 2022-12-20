@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import { Layout } from '../../components/Layouts/Layout';
-import { ProfileForm } from '../../components/ProfileForm';
+
 import { PaymentCard } from '../../components/UI/PaymentCard';
 import { useActions } from '../../hooks/useActions';
-import styles from './Profile.module.scss';
 import { Input } from '../../components/UI/FormElements/Input';
+import styles from './Profile.module.scss';
 
 export const Profile = () => {
   const { getCardData, sendCardData } = useActions();
@@ -29,10 +29,10 @@ export const Profile = () => {
     formState: { errors },
   } = useForm({
     mode: 'onChange',
+    defaultValues: card,
   });
 
   const handleFormSubmit = (data) => {
-    console.log(data);
     setFormState(data);
     sendCardData(data);
   };

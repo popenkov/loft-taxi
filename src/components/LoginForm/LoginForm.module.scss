@@ -9,6 +9,12 @@
   padding: 55px 112px;
   background-color: $white;
   @include boxShadow;
+
+  @include tablet {
+    width: 100%;
+    max-width: unset;
+    padding: 62px 10px;
+  }
 }
 
 .title {
@@ -23,6 +29,10 @@
   text-align: right;
   @include font-size(16, 19, 400);
   color: $grey;
+
+  @include tablet {
+    margin-top: -10px;
+  }
 }
 
 .switchFormContainer {
