@@ -2,6 +2,12 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/breakpoints.scss';
 
+.navigation {
+  @include tablet {
+    @include flex-column;
+  }
+}
+
 .link {
   cursor: pointer;
   border: none;
@@ -10,11 +16,29 @@
 
   @include font-size(21, 25, 400);
 
+  @include tablet {
+    color: $black;
+    @include flex-center-vert;
+    @include font-size(16, 30, 400);
+  }
+
   &:not(:last-child) {
     margin-right: 20px;
   }
 
   &Active {
     color: $orange;
+
+    @include tablet {
+      color: $black;
+    }
+  }
+}
+
+.icon {
+  display: none;
+  @include tablet {
+    @include flex-center-vert;
+    margin-right: 8px;
   }
 }

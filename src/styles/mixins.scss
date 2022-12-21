@@ -3,6 +3,13 @@
   height: $height;
 }
 
+@mixin fixed-fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 @mixin flex-column {
   display: flex;
   flex-direction: column;

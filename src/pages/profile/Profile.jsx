@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
 import { Layout } from '../../components/Layouts/Layout';
-
+import { ReactComponent as SevronIcon } from '../../assets/icons/shevron-left.svg';
 import { PaymentCard } from '../../components/UI/PaymentCard';
 import { useActions } from '../../hooks/useActions';
 import { Input } from '../../components/UI/FormElements/Input';
@@ -37,6 +37,8 @@ export const Profile = () => {
     sendCardData(data);
   };
 
+  const handleBackBtnClick = () => {};
+
   return (
     <Layout>
       {isLoading ? (
@@ -45,7 +47,12 @@ export const Profile = () => {
         <div className={styles.profile}>
           <div className={styles.container}>
             <h2 className={styles.title}>Профиль</h2>
-            <p className={styles.subtitle}>Введите платежные данные</p>
+            <p className={styles.subtitle}>
+              <span className={styles.backBtn} onClick={handleBackBtnClick}>
+                <SevronIcon />
+              </span>
+              Введите платежные данные
+            </p>
             <div className={styles.info}>
               <div className={styles.formContainer}>
                 <form id="hook-form" onSubmit={handleSubmit(handleFormSubmit)}>
