@@ -40,6 +40,11 @@
       "react-app/jest"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "CI=true npm run test"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -53,6 +58,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0"
+    "@testing-library/react": "^13.4.0",
+    "husky": "^4.3.8"
   }
 }
