@@ -3,7 +3,7 @@
 @import '../../../styles/breakpoints.scss';
 
 .navigation {
-  @include tablet {
+  @include mobile {
     @include flex-column;
   }
 }
@@ -16,7 +16,7 @@
 
   @include font-size(21, 25, 400);
 
-  @include tablet {
+  @include mobile {
     color: $black;
     @include flex-center-vert;
     @include font-size(16, 30, 400);
@@ -29,7 +29,7 @@
   &Active {
     color: $orange;
 
-    @include tablet {
+    @include mobile {
       color: $black;
     }
   }
@@ -37,7 +37,7 @@
 
 .icon {
   display: none;
-  @include tablet {
+  @include mobile {
     @include flex-center-vert;
     margin-right: 8px;
   }

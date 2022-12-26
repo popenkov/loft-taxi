@@ -14,7 +14,6 @@ export const RegisterForm = () => {
   const handleFormSubmit = (data) => {
     // TODO backend is waiting for surname key
     data.surname = data.name;
-    console.log(data);
     registerAction(data);
   };
 

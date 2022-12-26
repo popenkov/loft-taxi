@@ -6,7 +6,7 @@
   height: 100vh;
   display: flex;
 
-  @include tablet {
+  @include mobile {
     flex-direction: column;
   }
 }
@@ -18,7 +18,7 @@
   background-image: url('../../assets/images/map-bg.jpg');
   background-size: cover;
 
-  @include tablet {
+  @include mobile {
     background-image: unset;
   }
 }

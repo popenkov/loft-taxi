@@ -10,112 +10,50 @@ import { useSelector } from 'react-redux';
 import { addressListMapper } from './utils';
 import { tariffData } from './tariffMock';
 import { TariffItem } from '../TariffItem';
+import Tariffs from './Tariffs/Tariffs';
+import Addresses from './Addresses/Addresses';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { BREAKPOINTS } from '../../constants/constants';
 
 export const OrderInfo = ({ changeOrderStatus }) => {
-  const { getRouteData, getAdressListData } = useActions();
-  const { isLoading: areAddressesLoading, addresses } = useSelector(
+  const { getRouteData } = useActions();
+  const { isLoading: areAddressesLoading, error } = useSelector(
     (state) => state.route
   );
+  const { getAdressListData } = useActions();
 
-  const [addressList, setAddressList] = useState([]);
-  const [chosenAddress, setChosenAddress] = useState(null);
+  const isMobile = useMediaQuery(BREAKPOINTS.TABLET);
 
   useEffect(() => {
     getAdressListData();
   }, []);
-
-  useEffect(() => {
-    let filterredAddresses = addresses;
-    if (Boolean(chosenAddress)) {
-      filterredAddresses = addresses.filter((item) => {
-        return item !== chosenAddress;
-      });
-    }
-    const mappedAdresses = addressListMapper(filterredAddresses);
-    setAddressList(mappedAdresses);
-  }, [addresses, chosenAddress]);
 
   const handleFormSubmit = (data) => {
     getRouteData(data);
     changeOrderStatus();
   };
 
-  const handleSelectChange = (option) => {
-    setChosenAddress(option);
-  };
-
-  const {
-    handleSubmit,
-
-    formState: { errors },
-    control,
-  } = useForm({
+  const { handleSubmit, getValues, watch, formState, control } = useForm({
     mode: 'onChange',
   });
+
+  const isFirstAddressChosen = watch('address1');
+  const isSecondAddressChosen = watch('address2');
+  const areAddressesChosen =
+    Boolean(isFirstAddressChosen) && Boolean(isSecondAddressChosen);
+
+  const areTariffsShown = !isMobile || (isMobile && areAddressesChosen);
 
   return (
     <div className={styles.container}>
       {areAddressesLoading ? (
         <p>Loading...</p>
+      ) : error ? (
+        <p>Network error...</p>
       ) : (
-        <form onSubmit={handleSubmit(handleFormSubmit)}>
-          <div className={styles.selectsContainer}>
-            <Controller
-              name="address1"
-              control={control}
-              rules={{
-                required: 'Пожалуйста, выберите точку отправление',
-              }}
-              render={({ field, fieldState: { error } }) => (
-                <Select
-                  error={error}
-                  field={field}
-                  placeholder=""
-                  options={addressList}
-                  isLoading={areAddressesLoading}
-                  getSelectValue={handleSelectChange}
-                />
-              )}
-            />
-            <Controller
-              name="address2"
-              control={control}
-              rules={{
-                required: 'Пожалуйста, выберите точку прибытия',
-              }}
-              render={({ field, fieldState: { error } }) => (
-                <Select
-                  error={error}
-                  field={field}
-                  placeholder=""
-                  options={addressList}
-                  isLoading={areAddressesLoading}
-                  getSelectValue={handleSelectChange}
-                />
-              )}
-            />
-          </div>
-
-          <div className={styles.bottomContainer}>
-            <div className={styles.tariff}>
-              {tariffData.map((item, index) => {
-                return (
-                  <Controller
-                    key={item.id}
-                    name="tariff"
-                    control={control}
-                    rules={{
-                      required: 'Please select the desired Tariff',
-                    }}
-                    render={({ field, fieldState: { error } }) => (
-                      <TariffItem error={error} field={field} {...item} />
-                    )}
-                  />
-                );
-              })}
-            </div>
-            <Button text="Заказать" type="submit" buttonType="primary" />
-          </div>
+        <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
+          <Addresses getAdressListData={getAdressListData} control={control} />
+          {areTariffsShown && <Tariffs control={control} />}
         </form>
       )}
     </div>

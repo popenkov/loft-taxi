@@ -7,7 +7,7 @@
   height: 102px;
   background-color: $blackBg;
 
-  @include tablet {
+  @include mobile {
     height: auto;
     background-color: transparent;
     // position: absolute;
@@ -20,7 +20,7 @@
     padding: 20px 25px;
     @include flex-center-fullwidth;
 
-    @include tablet {
+    @include mobile {
       @include fixed-fullscreen;
       z-index: 2;
       align-items: flex-start;
@@ -37,7 +37,7 @@
 .logoContainer {
   @include flex-center-vert;
 
-  @include tablet {
+  @include mobile {
     display: none;
   }
 }
@@ -50,24 +50,16 @@
 .navigationContainer {
   @include flex-center-vert;
 
-  @include tablet {
+  @include mobile {
     flex-direction: column;
     align-items: flex-start;
-  }
-}
-
-.logoutContainer {
-  margin-left: 16px;
-
-  @include tablet {
-    margin-left: 0;
   }
 }
 
 .mobileBurger {
   display: none;
 
-  @include tablet {
+  @include mobile {
     cursor: pointer;
     display: block;
     @include box(24px);
@@ -89,7 +81,7 @@
 .closeButton {
   display: none;
 
-  @include tablet {
+  @include mobile {
     cursor: pointer;
     display: none;
     @include box(24px);

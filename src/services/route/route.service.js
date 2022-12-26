@@ -9,10 +9,14 @@ export const RouteService = {
   },
 
   async getAddressList() {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}addressList`
-    );
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}addressList`
+      );
 
-    return response;
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

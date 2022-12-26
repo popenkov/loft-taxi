@@ -24,10 +24,10 @@ export const Map = () => {
       <div className={styles.container}>
         <div className={styles.orderContainer}>
           {!isCardAdded ? (
-            <>
-              <p> Пожалуйста, добавьте карту в свой аккаунт</p>{' '}
+            <div className={styles.addCardContainer}>
+              <p>Пожалуйста, добавьте карту в свой аккаунт</p>{' '}
               <Link to={ROUTES.PROFILE}>В профиль</Link>
-            </>
+            </div>
           ) : !isOrderPlaced ? (
             <OrderInfo changeOrderStatus={handleChangeOrderStatus} />
           ) : (

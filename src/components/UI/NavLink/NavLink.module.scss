@@ -10,7 +10,7 @@
 
   @include font-size(21, 25, 400);
 
-  @include tablet {
+  @include mobile {
     padding: 0;
     color: $black;
     @include flex-center-vert;
@@ -19,7 +19,7 @@
 
   &:not(:last-child) {
     margin-right: 20px;
-    @include tablet {
+    @include mobile {
       margin-right: 0;
     }
   }

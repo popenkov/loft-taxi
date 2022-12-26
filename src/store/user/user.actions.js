@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { AuthService } from '../../services/auth/auth.service';
 
-// регистрация
 export const register = createAsyncThunk(
   'auth/register',
   async ({ email, password, name, surname }, thunkAPI) => {
@@ -20,7 +19,6 @@ export const register = createAsyncThunk(
   }
 );
 
-// авторизация
 export const login = createAsyncThunk(
   'auth/login',
   async ({ email, password }, thunkAPI) => {
@@ -29,7 +27,6 @@ export const login = createAsyncThunk(
       if (response.data.success) {
         return response.data;
       } else {
-        // TODO не получается пробросить ошибку throw
         return thunkAPI.rejectWithValue(response.data.error);
       }
     } catch (error) {

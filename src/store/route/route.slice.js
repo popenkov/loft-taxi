@@ -6,6 +6,7 @@ const initialState = {
   isLoading: false,
   routes: [],
   addresses: [],
+  error: false,
 };
 
 export const routeSlice = createSlice({
@@ -20,10 +21,12 @@ export const routeSlice = createSlice({
       .addCase(getRouteData.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.routes = payload;
+        state.error = false;
       })
       .addCase(getRouteData.rejected, (state) => {
         state.isLoading = false;
         state.routes = null;
+        state.error = true;
       })
       .addCase(getAdressListData.pending, (state) => {
         state.isLoading = true;
@@ -31,10 +34,12 @@ export const routeSlice = createSlice({
       .addCase(getAdressListData.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.addresses = payload.addresses;
+        state.error = false;
       })
       .addCase(getAdressListData.rejected, (state) => {
         state.isLoading = false;
         state.addresses = null;
+        state.error = true;
       });
   },
 });

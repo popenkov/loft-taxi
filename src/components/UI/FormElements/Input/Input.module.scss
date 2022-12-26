@@ -23,7 +23,7 @@
   @include font-size(18, 21, 400);
   outline: none;
 
-  @include tablet {
+  @include mobile {
     margin-bottom: 25px;
   }
 

@@ -10,7 +10,7 @@
   background-color: $white;
   @include boxShadow;
 
-  @include tablet {
+  @include mobile {
     width: 100%;
     max-width: unset;
     padding: 62px 10px;
@@ -30,7 +30,7 @@
   @include font-size(16, 19, 400);
   color: $grey;
 
-  @include tablet {
+  @include mobile {
     margin-top: -10px;
   }
 }

@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { RouteService } from '../../services/route/route.service';
 
-// регистрация
 export const getRouteData = createAsyncThunk(
   'route/getRouteData',
   async ({ address1, address2 }, thunkAPI) => {
@@ -15,7 +14,6 @@ export const getRouteData = createAsyncThunk(
   }
 );
 
-// авторизация
 export const getAdressListData = createAsyncThunk(
   'route/getAdressListData',
   async () => {

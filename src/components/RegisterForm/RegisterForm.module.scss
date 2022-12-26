@@ -10,7 +10,7 @@
   background-color: $white;
   @include boxShadow;
 
-  @include tablet {
+  @include mobile {
     width: 100%;
     max-width: unset;
     padding: 62px 10px;

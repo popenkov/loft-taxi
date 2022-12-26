@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/breakpoints.scss';
+
+.card {
+  @include flex-column;
+  align-items: center;
+  height: 100%;
+  padding: 38px;
+}
+
+.img {
+  flex-grow: 1;
+  max-width: 100%;
+  margin-bottom: 60px;
+  object-fit: contain;
+}
+
+.description {
+}
+
+.title {
+  margin-bottom: 20px;
+  @include font-size(30, 35, 700);
+  text-align: center;
+}
+
+.text {
+  margin-bottom: 85px;
+  @include font-size(21, 27, 400);
+  color: $grey;
+  text-align: center;
+}

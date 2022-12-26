@@ -38,6 +38,7 @@ export const LoginForm = () => {
           {...register('password', {
             required: 'Password is required!',
           })}
+          type="password"
           placeholder="Пароль"
           error={errors.password}
         />

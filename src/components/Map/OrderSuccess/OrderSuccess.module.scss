@@ -9,4 +9,36 @@
   background: #ffffff;
   box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+
+  @include mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+}
+
+.title {
+  @include mobile {
+    margin-bottom: 11px;
+    @include font-size(21, 25, 700);
+    color: $black;
+    text-align: center;
+  }
+}
+
+.text {
+  @include mobile {
+    @include font-size(16, 19, 400);
+    color: $grey;
+    text-align: center;
+  }
+}
+
+.buttonContainer {
+  @include mobile {
+  }
 }

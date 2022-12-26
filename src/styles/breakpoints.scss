@@ -1,5 +1,5 @@
 $tablet: 768;
-$desktop: 1280;
+$desktop: 1028;
 
 @mixin tablet {
   @media only screen and (max-width: $desktop * 1px) {
@@ -12,7 +12,3 @@ $desktop: 1280;
     @content;
   }
 }
-
-// @include tablet {
-//   margin: 20px;
-// }

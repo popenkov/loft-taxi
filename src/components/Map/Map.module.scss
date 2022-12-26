@@ -1,3 +1,7 @@
+@import '../../styles/breakpoints.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 .container {
   height: 100vh;
   position: relative;
@@ -8,4 +12,35 @@
   z-index: 1;
   left: 68px;
   top: 161px;
+
+  @include mobile {
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.addCardContainer {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+
+  width: 486px;
+  padding: 33px 23px;
+  background-color: $white;
+
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  @include mobile {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
 }

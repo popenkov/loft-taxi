@@ -10,6 +10,7 @@ import { ReactComponent as CloseIcon } from '../../assets/icons/close-menu.svg';
 import styles from './header.module.scss';
 import { Navigation } from './Navigation';
 import { NavLink } from '../UI/NavLink/';
+import ExitLink from './ExitLink/ExitLink';
 
 export const Header = () => {
   const { logout } = useActions();
@@ -57,13 +58,7 @@ export const Header = () => {
         <div className={styles.navigationContainer}>
           <Navigation />
 
-          <div className={styles.logoutContainer}>
-            <NavLink
-              name="Выйти"
-              color="secondary"
-              handleClick={handleLogoutClick}
-            ></NavLink>
-          </div>
+          <ExitLink handleClick={handleLogoutClick} />
         </div>
       </div>
     </header>
