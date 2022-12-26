@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/loft-taxi/static/css/main.b699e94a.css",
+    "main.js": "/loft-taxi/static/js/main.5f24df7c.js",
+    "static/media/map-bg.jpg": "/loft-taxi/static/media/map-bg.ad6fab8392915e47d05f.jpg",
+    "static/media/animals.svg": "/loft-taxi/static/media/animals.5d2548f5467e042139e50feabe286091.svg",
+    "static/media/taxi-logo.svg": "/loft-taxi/static/media/taxi-logo.5b98b4b5e93b056cad43463defd59f33.svg",
+    "static/media/profile.svg": "/loft-taxi/static/media/profile.d44e78f19dbf7df180b0d95d6b4456b4.svg",
+    "static/media/road-logo.svg": "/loft-taxi/static/media/road-logo.11ddfbf52e18024a7d3bba2c7b06ffe2.svg",
+    "static/media/map-icon.svg": "/loft-taxi/static/media/map-icon.10f9511ff28ffbbb468db35175dbe957.svg",
+    "index.html": "/loft-taxi/index.html",
+    "static/media/close-menu.svg": "/loft-taxi/static/media/close-menu.405d6161ef69523d0231980cae77bfed.svg",
+    "static/media/contacts.svg": "/loft-taxi/static/media/contacts.b24d5f4363080cee381f193beecbea1d.svg",
+    "static/media/shevron-left.svg": "/loft-taxi/static/media/shevron-left.274a9aa0ab1e66d3a7389c2012e0b4d4.svg",
+    "static/media/burger-menu.svg": "/loft-taxi/static/media/burger-menu.5f88b6bb0d2ad52d607ed6dfa54dc745.svg",
+    "static/media/slider-shevron-left.svg": "/loft-taxi/static/media/slider-shevron-left.914b012f00283bab0a05c2fd5480604a.svg",
+    "main.b699e94a.css.map": "/loft-taxi/static/css/main.b699e94a.css.map",
+    "main.5f24df7c.js.map": "/loft-taxi/static/js/main.5f24df7c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b699e94a.css",
+    "static/js/main.5f24df7c.js"
+  ]
+}
