@@ -1,0 +1,43 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/breakpoints.scss';
+
+.inputContainer {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include font-size(16, 19, 700);
+}
+
+.input {
+  width: 100%;
+  padding: 28px 0 10px;
+  margin-bottom: 24px;
+  background-color: unset !important;
+  border: none;
+  border-bottom: 2px solid $greyBorder;
+  @include font-size(18, 21, 400);
+  outline: none;
+
+  @include mobile {
+    margin-bottom: 25px;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: red;
+}

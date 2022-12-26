@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import MobileSlider from './components/MobileSlider/MobileSlider';
 
-function App() {
+import { AppRouter } from './router/AppRouter';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './styles/global.scss';
+import './styles/styles.scss';
+import { popupStyles } from './styles/popupStyles';
+import Preloader from './components/Preloader/Preloader';
+
+Modal.setAppElement('#root');
+
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Preloader />
+      <AppRouter />
+      <Modal isOpen={isModalOpen} style={popupStyles}>
+        <MobileSlider />
+      </Modal>
+    </>
   );
-}
+};
 
 export default App;

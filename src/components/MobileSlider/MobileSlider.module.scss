@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.sliderContainer {
+  display: none;
+
+  @include mobile {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+
+    background-color: $white;
+  }
+}
+
+.slider {
+  position: relative;
+  height: calc(100% - 60px);
+
+  :global(.swiper-pagination-bullets) {
+    @include transform-center-horizontal;
+    bottom: 0;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 13px;
+    height: 13px;
+
+    background-color: $greyBullet;
+
+    &-active {
+      background-color: $orange;
+    }
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  @include flex-center;
+  width: 58px;
+  height: 53px;
+  padding: 0;
+  border: none;
+}
+
+.buttonPrev {
+  background: $black;
+  border-radius: 0px 35px 0px 0px;
+}
+
+.buttonNext {
+  background: $orange;
+  border-radius: 35px 0px 0px 0px;
+
+  & svg {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/breakpoints.scss';
+
+.navigation {
+  @include mobile {
+    @include flex-column;
+  }
+}
+
+.link {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: $white;
+
+  @include font-size(21, 25, 400);
+
+  @include mobile {
+    color: $black;
+    @include flex-center-vert;
+    @include font-size(16, 30, 400);
+  }
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &Active {
+    color: $orange;
+
+    @include mobile {
+      color: $black;
+    }
+  }
+}
+
+.icon {
+  display: none;
+  @include mobile {
+    @include flex-center-vert;
+    margin-right: 8px;
+  }
+}

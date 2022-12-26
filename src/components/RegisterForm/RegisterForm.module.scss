@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.form {
+  max-width: 580px;
+  width: calc(100% - 40px);
+
+  padding: 55px 112px;
+  background-color: $white;
+  @include boxShadow;
+
+  @include mobile {
+    width: 100%;
+    max-width: unset;
+    padding: 62px 10px;
+  }
+}
+
+.title {
+  margin-bottom: 57px;
+  text-align: center;
+  @include font-size(30, 35, 700);
+}
+
+.switchFormContainer {
+  @include flex-center;
+  margin-top: 33px;
+}
+
+.switchFormText {
+  padding-right: 5px;
+  @include font-size(16, 19, 400);
+
+  color: $grey;
+}
+
+.registerLink {
+  @include font-size(16, 19, 400);
+  color: $orange;
+}

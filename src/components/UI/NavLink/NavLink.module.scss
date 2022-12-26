@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/breakpoints.scss';
+
+.link {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: $white;
+
+  @include font-size(21, 25, 400);
+
+  @include mobile {
+    padding: 0;
+    color: $black;
+    @include flex-center-vert;
+    @include font-size(16, 30, 400);
+  }
+
+  &:not(:last-child) {
+    margin-right: 20px;
+    @include mobile {
+      margin-right: 0;
+    }
+  }
+}

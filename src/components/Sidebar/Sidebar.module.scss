@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.sidebar {
+  min-width: 220px;
+  max-width: 485px;
+  width: 34%;
+  @include flex-center;
+  background-color: $blackBg;
+
+  @include mobile {
+    flex: 1;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    padding: 25px;
+  }
+}
+
+.LogoContainer {
+  @include flex-center-column;
+}
+.roadLogo {
+  margin-bottom: 22px;
+
+  @include mobile {
+    @include box(75px);
+    margin-bottom: 5px;
+  }
+}
+
+.taxiLogo {
+  @include mobile {
+    max-width: 167px;
+  }
+}

@@ -1,0 +1,26 @@
+@import '../../../styles/breakpoints.scss';
+
+.container {
+  position: relative;
+  height: 100vh;
+
+  [class*='ymaps-2'][class*='-ground-pane'] {
+    filter: grayscale(100%);
+  }
+
+  & .mapboxgl-ctrl-bottom-right {
+    display: none;
+  }
+}
+
+.mapContainer {
+  height: calc(100vh - 102px);
+
+  @include mobile {
+    height: 100vh;
+  }
+
+  & .mapboxgl-ctrl-bottom-right {
+    display: none;
+  }
+}

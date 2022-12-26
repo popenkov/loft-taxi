@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/breakpoints.scss';
+
+.button {
+  cursor: pointer;
+  display: block;
+  background-color: unset;
+  border: none;
+}
+
+.primary {
+  width: 100%;
+  padding: 15px 28px;
+  background-color: $orange;
+  border-radius: 70px;
+
+  @include font-size(24, 28, 400);
+
+  @include mobile {
+    padding: 18px 28px;
+    @include font-size(21, 25, 400);
+  }
+
+  &:hover,
+  &:active {
+    background-color: $orangeDark;
+  }
+
+  &:disabled {
+    color: $greyText;
+    background-color: $greyBg;
+  }
+}
+
+.secondary {
+  color: $orange;
+  @include font-size(16, 19, 400);
+}

@@ -1,0 +1,101 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.header {
+  width: 100%;
+  height: 102px;
+  background-color: $blackBg;
+
+  @include mobile {
+    height: auto;
+    background-color: transparent;
+    // position: absolute;
+  }
+
+  &Container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 25px;
+    @include flex-center-fullwidth;
+
+    @include mobile {
+      @include fixed-fullscreen;
+      z-index: 2;
+      align-items: flex-start;
+      background-color: $white;
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
+  }
+}
+
+.logoContainer {
+  @include flex-center-vert;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.roadLogo {
+  @include box(61px);
+  margin-right: 16px;
+}
+
+.navigationContainer {
+  @include flex-center-vert;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.mobileBurger {
+  display: none;
+
+  @include mobile {
+    cursor: pointer;
+    display: block;
+    @include box(24px);
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+
+    &.open {
+      display: none;
+    }
+  }
+
+  svg {
+    width: 100%;
+  }
+}
+
+.closeButton {
+  display: none;
+
+  @include mobile {
+    cursor: pointer;
+    display: none;
+    @include box(24px);
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    right: 10px;
+
+    &.open {
+      display: block;
+    }
+  }
+
+  svg {
+    width: 100%;
+  }
+}

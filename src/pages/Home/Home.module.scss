@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/breakpoints.scss';
+
+.page {
+  height: 100vh;
+  display: flex;
+
+  @include mobile {
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
+.main {
+  width: 100%;
+  @include flex-center;
+
+  background-image: url('../../assets/images/map-bg.jpg');
+  background-size: cover;
+
+  @include mobile {
+    background-image: unset;
+  }
+}
