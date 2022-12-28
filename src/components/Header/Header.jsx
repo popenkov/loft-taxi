@@ -1,5 +1,4 @@
 import { useActions } from '../../hooks/useActions';
-import { PropTypes } from 'prop-types';
 import React, { useState } from 'react';
 import cn from 'classnames';
 
@@ -9,7 +8,6 @@ import { ReactComponent as BurgerIcon } from '../../assets/icons/burger-menu.svg
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-menu.svg';
 import styles from './header.module.scss';
 import { Navigation } from './Navigation';
-import { NavLink } from '../UI/NavLink/';
 import ExitLink from './ExitLink/ExitLink';
 
 export const Header = () => {
@@ -35,6 +33,7 @@ export const Header = () => {
           [styles.open]: isMenuOpen,
         })}
         onClick={handleBurgerMenuClick}
+        data-testid="open-btn"
       >
         <BurgerIcon />
       </div>
@@ -43,6 +42,7 @@ export const Header = () => {
           [styles.open]: isMenuOpen,
         })}
         onClick={handleMenuCloseClick}
+        data-testid="close-btn"
       >
         <CloseIcon />
       </div>
@@ -50,8 +50,9 @@ export const Header = () => {
         className={cn(styles.headerContainer, {
           [styles.open]: isMenuOpen,
         })}
+        data-testid="menu"
       >
-        <div className={styles.logoContainer}>
+        <div className={styles.logoContainer} data-testid="logo-container">
           <RoadLogo className={styles.roadLogo} />
           <TaxiLogo className={styles.taxiLogo} />
         </div>

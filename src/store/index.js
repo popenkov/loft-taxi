@@ -6,3 +6,10 @@ export const store = configureStore({
   reducer: reducers,
   devTools: true,
 });
+
+export const createReduxStore = (initialState = {}) => {
+  return configureStore({
+    reducer: reducers,
+    preloadedState: initialState,
+  });
+};
