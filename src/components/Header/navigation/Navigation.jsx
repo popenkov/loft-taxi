@@ -37,7 +37,7 @@ export const Navigation = () => {
               [styles.linkActive]: activeLink,
             })}
           >
-            <span className={styles.icon}>
+            <span className={styles.icon} data-testid="links-item">
               <Icon />
             </span>
             {link.name}

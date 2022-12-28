@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exit btn component renders correctly 1`] = `<ExitLink />`;
