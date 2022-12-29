@@ -8,9 +8,19 @@ import { addressListMapper } from '../utils';
 import styles from './Addresses.module.scss';
 
 const Addresses = ({ control }) => {
-  const { addresses, areAddressesLoading } = useSelector(
-    (state) => state.route
-  );
+  // TODO No server
+  // const { addresses, areAddressesLoading } = useSelector(
+  //   (state) => state.route
+  // );
+
+  const addresses = [
+    'Улица Горького',
+    'Проспект строителей',
+    'Улица Мира',
+    '1-ый проезд',
+  ];
+
+  const areAddressesLoading = false;
 
   const [addressList, setAddressList] = useState([]);
   const [chosenAddress, setChosenAddress] = useState(null);

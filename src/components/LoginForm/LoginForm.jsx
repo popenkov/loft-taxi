@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useActions } from '../../hooks/useActions';
@@ -12,7 +12,9 @@ export const LoginForm = () => {
   const { login } = useActions();
 
   const handleFormSubmit = (data) => {
-    login(data);
+    // TODO no server
+    // login(data);
+    return <Navigate to="/map" replace />;
   };
 
   const {

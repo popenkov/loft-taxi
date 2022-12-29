@@ -8,7 +8,7 @@ import styles from './MobileSlider.module.scss';
 import MobileSliderCard from './MobileSliderCard/MobileSliderCard';
 import { slidesData } from './mock';
 
-const MobileSlider = () => {
+const MobileSlider = ({ handlePopupClose }) => {
   const buttonPrevRef = useRef(null);
   const buttonNextRef = useRef(null);
 
@@ -19,6 +19,11 @@ const MobileSlider = () => {
         spaceBetween={3}
         slidesPerView={1}
         onInit={(swiper) => {}}
+        onSlideChange={(swiper) => {
+          if (swiper.current === slidesData.length) {
+            handlePopupClose();
+          }
+        }}
         navigation={{
           prevEl: '.navigationButton--prev',
           nextEl: '.navigationButton--next',

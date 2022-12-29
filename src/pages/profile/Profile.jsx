@@ -11,20 +11,28 @@ import { useActions } from '../../hooks/useActions';
 import { Input } from '../../components/UI/FormElements/Input';
 import styles from './Profile.module.scss';
 import { ProfileCardSaved } from './ProfileCardSaved/ProfileCardSaved';
+import { Link, Navigate } from 'react-router-dom';
 
 export const Profile = () => {
   const { getCardData, sendCardData } = useActions();
   const { isLoading, card, error } = useSelector((state) => state.payment);
-  const [formState, setFormState] = useState(card ? card : {});
+  // TODO no server
+  const [formState, setFormState] = useState({
+    cardName: '',
+    cardNumber: '',
+    cvc: '',
+    expiryDate: '',
+  });
   const [isDataSaved, setIsDataSaved] = useState(false);
 
   useEffect(() => {
     getCardData();
   }, []);
 
-  useEffect(() => {
-    setFormState(card);
-  }, [card]);
+  // TODO no server
+  // useEffect(() => {
+  //   setFormState(card);
+  // }, [card]);
 
   const {
     handleSubmit,
@@ -41,8 +49,6 @@ export const Profile = () => {
     setIsDataSaved(true);
   };
 
-  const handleBackBtnClick = () => {};
-
   return (
     <Layout>
       {isLoading ? (
@@ -53,9 +59,9 @@ export const Profile = () => {
             <div className={styles.container}>
               <h2 className={styles.title}>Профиль</h2>
               <p className={styles.subtitle}>
-                <span className={styles.backBtn} onClick={handleBackBtnClick}>
+                <Link to="/map" className={styles.backBtn}>
                   <ShevronIcon />
-                </span>
+                </Link>
                 Введите платежные данные
               </p>
               <div className={styles.info}>

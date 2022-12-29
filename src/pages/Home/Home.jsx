@@ -8,7 +8,10 @@ import styles from './Home.module.scss';
 import { Navigate } from 'react-router-dom';
 
 export const Home = () => {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
+
+  // TODO no server
+  const isLoggedIn = false;
 
   return (
     <div className={styles.page}>

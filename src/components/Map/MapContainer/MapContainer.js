@@ -27,7 +27,7 @@ export const MapContainer = ({ isOrderPlaced }) => {
   });
 
   useEffect(() => {
-    if (map.current && routes.length > 0) {
+    if (map?.current && routes?.length) {
       drawRoute(map.current, routes);
     }
   }, [routes]);

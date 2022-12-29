@@ -31,6 +31,7 @@
 }
 
 .text {
+  margin-bottom: 11px;
   @include mobile {
     @include font-size(16, 19, 400);
     color: $grey;

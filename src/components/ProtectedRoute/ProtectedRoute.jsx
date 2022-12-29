@@ -5,7 +5,9 @@ import { PropTypes } from 'prop-types';
 import { useAuth } from '../../hooks/useAuth';
 
 export const ProtectedRoute = ({ children }) => {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
+  // TODO no server
+  const isLoggedIn = true;
 
   if (!isLoggedIn) {
     return <Navigate to="/" replace />;

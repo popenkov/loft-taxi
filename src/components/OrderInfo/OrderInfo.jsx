@@ -1,15 +1,10 @@
 import { useActions } from '../../hooks/useActions';
 import React, { useEffect, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { PropTypes } from 'prop-types';
 
-import { Button } from '../UI/Button';
-import { Select } from '../UI/FormElements/Select';
 import styles from './OrderInfo.module.scss';
 import { useSelector } from 'react-redux';
-import { addressListMapper } from './utils';
-import { tariffData } from './tariffMock';
-import { TariffItem } from '../TariffItem';
 import Tariffs from './Tariffs/Tariffs';
 import Addresses from './Addresses/Addresses';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
@@ -17,9 +12,14 @@ import { BREAKPOINTS } from '../../constants/constants';
 
 export const OrderInfo = ({ changeOrderStatus }) => {
   const { getRouteData } = useActions();
-  const { isLoading: areAddressesLoading, error } = useSelector(
-    (state) => state.route
-  );
+  // TODO no server
+  // const { isLoading: areAddressesLoading, error } = useSelector(
+  //   (state) => state.route
+  // );
+
+  const areAddressesLoading = false;
+  const error = false;
+
   const { getAdressListData } = useActions();
 
   const isMobile = useMediaQuery(BREAKPOINTS.TABLET);

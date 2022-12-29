@@ -12,7 +12,9 @@ import { OrderSuccess } from './OrderSuccess/OrderSuccess';
 
 export const Map = () => {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
-  const isCardAdded = getStoreLocal('cardAdded');
+  // TODO no server
+  // const isCardAdded = getStoreLocal('cardAdded');
+  const isCardAdded = true;
 
   const handleChangeOrderStatus = () => {
     setIsOrderPlaced((prev) => !prev);
