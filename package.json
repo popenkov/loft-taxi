@@ -42,11 +42,6 @@
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!@codemirror)/'",
     "eject": "react-scripts eject"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "CI=true npm run test"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
