@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/loft-taxi/static/css/main.73bcb3ed.css",
-    "main.js": "/loft-taxi/static/js/main.b67c0ca5.js",
+    "main.js": "/loft-taxi/static/js/main.36848cbf.js",
     "static/media/map-bg.jpg": "/loft-taxi/static/media/map-bg.ad6fab8392915e47d05f.jpg",
     "static/media/animals.svg": "/loft-taxi/static/media/animals.5d2548f5467e042139e50feabe286091.svg",
     "static/media/taxi-logo.svg": "/loft-taxi/static/media/taxi-logo.5b98b4b5e93b056cad43463defd59f33.svg",
@@ -15,10 +15,10 @@
     "static/media/burger-menu.svg": "/loft-taxi/static/media/burger-menu.5f88b6bb0d2ad52d607ed6dfa54dc745.svg",
     "static/media/slider-shevron-left.svg": "/loft-taxi/static/media/slider-shevron-left.914b012f00283bab0a05c2fd5480604a.svg",
     "main.73bcb3ed.css.map": "/loft-taxi/static/css/main.73bcb3ed.css.map",
-    "main.b67c0ca5.js.map": "/loft-taxi/static/js/main.b67c0ca5.js.map"
+    "main.36848cbf.js.map": "/loft-taxi/static/js/main.36848cbf.js.map"
   },
   "entrypoints": [
     "static/css/main.73bcb3ed.css",
-    "static/js/main.b67c0ca5.js"
+    "static/js/main.36848cbf.js"
   ]
 }
